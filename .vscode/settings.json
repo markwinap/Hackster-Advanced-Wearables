@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "audio_soundboard.h": "c",
+        "nmea.h": "c",
+        "gpgga.h": "c",
+        "parse.h": "c",
+        "parser_types.h": "c",
+        "time.h": "c",
+        "uv_config.h": "c",
+        "minmea.h": "c"
+    }
+}

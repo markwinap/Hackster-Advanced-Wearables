@@ -1,0 +1,68 @@
+//pin_no = b*32 + a
+//P1.1 = (1*32) + 1 = 33
+
+&i2c1 {
+  status = "disabled";
+};
+//GPS
+&uart1 {
+  compatible = "nordic,nrf-uarte";
+  current-speed = <9600>;
+  status = "okay";
+  rts-pin = <11>;//SB28
+  tx-pin = <33>;//P1.01 - SB30
+  rx-pin = <32>;//P1.00 - SB29
+};
+//AUDIO FX
+&uart2 {
+  compatible = "nordic,nrf-uarte";
+  current-speed = <9600>;
+  status = "okay";
+  //rts-pin = <19>;//P0.19 - SB51
+  tx-pin = <40>;//P1.08 - SB53
+  rx-pin = <41>;//P1.09 - SB53
+};
+//UV
+&i2c3 {
+  #address-cells = <1>;
+  #size-cells = <0>;
+  reg = <0xc000 0x1000>;
+  clock-frequency = <100000>;
+  interrupts = <12 1>;
+  status = "okay";
+  label = "I2C_3";
+  compatible = "nordic,nrf-twim";
+  sda-pin = < 34 >;//P1.02 - SDA
+  scl-pin = < 35 >;//P1.03 - SCL
+ };
+//Debug UART
+// &uart0 {
+  //   status = "okay";
+  //   current-speed = <115200>;
+  //   tx-pin = <20>;
+  //   rx-pin = <22>;
+  //   rts-pin = <19>;
+  //   cts-pin = <21>;
+// };
+//I2C
+// i2c1: i2c@9000 {
+//   #address-cells = < 0x1 >;
+//   #size-cells = < 0x0 >;
+//   reg = < 0x9000 0x1000 >;
+//   clock-frequency = < 0x186a0 >;
+//   interrupts = < 0x9 0x1 >;
+//   status = "disabled";
+//   label = "I2C_1";
+//   compatible = "nordic,nrf-twim";
+//   sda-pin = < 0x22 >;
+//   scl-pin = < 0x23 >;
+// };
+// i2c2: i2c@b000 {
+//   #address-cells = <1>;
+//   #size-cells = <0>;
+//   reg = <0xb000 0x1000>;
+//   clock-frequency = <100000>;
+//   interrupts = <11 1>;
+//   status = "disabled";
+//   label = "I2C_2";
+//  };
